@@ -1,10 +1,12 @@
 #!/usr/bin/python3
+""" Module  """
+
+
+
 import requests
 import time
-from pprint import pprint
 import pytesseract
 from PIL import Image
-from selenium import webdriver
 
 def GetPage(pageName):
     c = True
@@ -36,10 +38,10 @@ def GetPageRequest(pageName):
     #print(r.text)
     img = session.get('http://158.69.76.135/captcha.php')
 
-    with open('/Users/olivierguyot/vagrant1/sharedFolder/scraptest/test.png', 'wb') as f:
+    with open('./test.png', 'wb') as f:
             f.write(img.content)
             f.close()
-    capcha = pytesseract.image_to_string(Image.open('/Users/olivierguyot/vagrant1/sharedFolder/scraptest/test.png'))
+    capcha = pytesseract.image_to_string(Image.open('./test.png'))
     capcha = capcha.replace("\n", "")
     capcha2 = ""
     for i in capcha:
