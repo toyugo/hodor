@@ -10,7 +10,7 @@ super helpful:
     
 test tor launchged : curl --socks5 localhost:9050 --socks5-hostname localhost:9050 -s https://check.torproject.org/ | cat | grep -m 1 Congratulations | xargs
 pysocks ( not polipo)
-    """
+"""
 import requests
 import time
 from PIL import Image
@@ -21,7 +21,7 @@ def GetPage(pageName):
     c = True
     opts = webdriver.chrome.options.Options()
     opts.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36")
-    chromeProfilePath = "/Users/olivierguyot/vagrant1/sharedFolder/scraptest/tempfile/"
+    chromeProfilePath = "./tempfile/"
     #opts.add_argument("user-data-dir=" + chromeProfilePath)
     driver = webdriver.Chrome(options=opts)
     driver.get(pageName)
