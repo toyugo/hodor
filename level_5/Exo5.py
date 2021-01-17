@@ -11,7 +11,7 @@ def GetPage(pageName):
     c = True
     opts = webdriver.chrome.options.Options()
     opts.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36")
-    chromeProfilePath = "/Users/olivierguyot/vagrant1/sharedFolder/scraptest/tempfile/"
+    chromeProfilePath = "./tempfile/"
     #opts.add_argument("user-data-dir=" + chromeProfilePath)
     driver = webdriver.Chrome(options=opts)
     driver.get(pageName)
@@ -38,13 +38,13 @@ def GetPageRequest1(pageName):
     #print(r.text)
     img = session.get('http://158.69.76.135/tim.php')
 
-    with open('/Users/olivierguyot/vagrant1/sharedFolder/scraptest/test.png', 'wb') as f:
+    with open('./test.png', 'wb') as f:
         f.write(img.content)
         f.close()
-    im_noise = Image.open('/Users/olivierguyot/vagrant1/sharedFolder/scraptest/test.png')
+    im_noise = Image.open('./test.png')
     im_med = ndimage.median_filter(im_noise, 3)
-    io.imsave('/Users/olivierguyot/vagrant1/sharedFolder/scraptest/retreate2.png', im_med)
-    capcha = pytesseract.image_to_string(Image.open('/Users/olivierguyot/vagrant1/sharedFolder/scraptest/retreate2.png'))
+    io.imsave('./retreate2.png', im_med)
+    capcha = pytesseract.image_to_string(Image.open('./retreate2.png'))
     capcha = capcha.replace("\n", "")
     capcha2 = ""
     for i in capcha:
